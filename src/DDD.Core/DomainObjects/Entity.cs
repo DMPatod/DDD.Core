@@ -5,12 +5,17 @@ namespace DDD.Core.DomainObjects
     public abstract class Entity<TId> : DomainEventHolder, IEquatable<Entity<TId>>
         where TId : notnull
     {
+        protected Entity()
+        {
+            // For EF only.
+        }
+
         protected Entity(TId id)
         {
             Id = id;
         }
 
-        public TId Id { get; private set; }
+        public TId Id { get; }
 
         public bool Equals(Entity<TId>? other)
         {

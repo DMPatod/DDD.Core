@@ -13,7 +13,7 @@ namespace DDD.Core.Handlers
 
         public DefaultMessageHandler(IMediator mediator)
         {
-            this._mediator = mediator;
+            _mediator = mediator;
         }
 
         public Task PublishAsync<T>(T domainEvent, CancellationToken cancellationToken)
@@ -36,9 +36,9 @@ namespace DDD.Core.Handlers
 
     public static class DefaultMessageHandlerDIExtension
     {
-        public static IServiceCollection AddDefaultMessageHandler(this IServiceCollection services)
+        public static IServiceCollection AddDefaultMessageHandler(this IServiceCollection services, Assembly assembly)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
             services.TryAddTransient<IMessageHandler, DefaultMessageHandler>();
             return services;
         }

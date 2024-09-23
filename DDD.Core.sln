@@ -10,8 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DA545A7-5E33-4DFB-B3DB-27C56576D153}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		nuget-upload.yml = nuget-upload.yml
 		README.md = README.md
+		src\DDD.Core\docs\README.md = src\DDD.Core\docs\README.md
 	EndProjectSection
 EndProject
 Global

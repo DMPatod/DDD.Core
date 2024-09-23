@@ -1,0 +1,25 @@
+name: Main
+
+on:
+  push:
+    branches:
+      -  main
+
+jobs:
+  build-and-publish:
+    runs-on:  ubuntu-latest
+
+    steps:
+      -  name: Checkout repository
+         uses: actions/checkout@v2
+
+      -  name: Setup .NET
+         uses: actions/setup-dotnet@v1
+         with:
+           dotnet-version: '8.0.x'
+
+      -  name: Build and Pack
+         run: dotnet pack -c Relaese -o out
+
+#      -  name: Publish
+#         run: dotnet nuget push DMPatod.DDD.Core.0.1.4.nupkg

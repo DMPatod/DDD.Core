@@ -2,6 +2,6 @@
 {
     public interface IDomainContext
     {
-        Task SaveAsync(CancellationToken cancellationToken);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

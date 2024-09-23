@@ -19,7 +19,7 @@ namespace DDD.Core.Pipelines
             var ctx = new ValidationContext<TRequest>(request);
 
             var failures = _validators.Select(x => x.Validate(ctx)).SelectMany(x => x.Errors)
-                .Where(x => x is not null).ToArray();
+                .Where(x => x is not null);
 
             return failures.Any() ? throw new ValidationException(failures) : next();
         }

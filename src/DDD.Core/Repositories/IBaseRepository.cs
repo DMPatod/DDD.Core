@@ -10,7 +10,9 @@ namespace DDD.Core.Repositories
 
         Task<ICollection<T>> FindAsync(CancellationToken cancellationToken = default);
 
-        Task<T> CreateAsync(T entity, CancellationToken cancellationToken = default);
+        Task<int> FindPaginatedAsync(int page, int pageSize, CancellationToken cancellationToken = default);
+
+        Task<T> AddAsync(T entity, CancellationToken cancellationToken = default);
 
         Task UpdateAsync(T entity, CancellationToken cancellationToken = default);
 

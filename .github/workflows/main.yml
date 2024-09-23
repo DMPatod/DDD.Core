@@ -25,4 +25,4 @@ jobs:
          run: dotnet build -c Release -p:Version=${{ vars.VERSION_PREFIX }} -o out
 
       -  name: Publish
-         run: dotnet nuget push -s out/DMPatod.DDD.Core.${{ vars.VERSION_PREFIX }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }}
+         run: dotnet nuget push out/DMPatod.DDD.Core.${{ vars.VERSION_PREFIX }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
